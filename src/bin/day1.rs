@@ -26,12 +26,14 @@ fn find_digits(line: &String) -> i32{
     let mut firstDigit = String::new();
     let mut lastDigit  = String::new();
     for letter in line.chars(){
-        if firstDigit != ""{
-            firstDigit = if letter.is_numeric(){ letter.to_string()}else{firstDigit};
-        }else{
-            lastDigit = if letter.is_numeric(){ letter.to_string()}else{lastDigit};
+        if firstDigit == "" && letter.is_numeric() {
+            firstDigit = letter.to_string();
+            lastDigit = letter.to_string();
+        }else if firstDigit != ""  && letter.is_numeric() {
+            lastDigit = letter.to_string();
         }
+        
     }
-    let mut number = (firstDigit + &lastDigit).parse::<i32>().unwrap();
+    let number = (firstDigit + &lastDigit).parse::<i32>().unwrap();
     number
 }
