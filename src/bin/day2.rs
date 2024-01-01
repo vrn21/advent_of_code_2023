@@ -9,7 +9,7 @@ use std::collections::HashMap;
 // }
 
 
-fn main(){
+pub fn run() -> i32{
     let path  = Path::new("./src/data/Input_data_day2.txt");
     let file = match File::open(&path){
         Err(why) => panic!("Error happend {} {}",path.display(),why),
@@ -31,7 +31,8 @@ fn main(){
         };
         answer += check_possible_or_not(line, &max_conditions);
     }
-    println!("Answer is {}",answer);
+    //println!("Answer is {}",answer);
+    answer
 }
 
 fn check_possible_or_not(line: String,conditions :&HashMap<&str,i32>) -> i32{
