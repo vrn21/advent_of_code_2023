@@ -25,15 +25,19 @@ fn main() {
 fn find_digits(line: &String) -> i32{
     let mut firstDigit = String::new();
     let mut lastDigit  = String::new();
-    for letter in line.chars(){
-        if firstDigit == "" && letter.is_numeric() {
-            firstDigit = letter.to_string();
-            lastDigit = letter.to_string();
-        }else if firstDigit != ""  && letter.is_numeric() {
-            lastDigit = letter.to_string();
-        }
+
+    let letters: Vec<char> = line.chars().collect();
+
+    //if letters
+    // for letter in line.chars(){
+    //     if firstDigit == "" && letter.is_numeric() {
+    //         firstDigit = letter.to_string();
+    //         lastDigit = letter.to_string();
+    //     }else if firstDigit != ""  && letter.is_numeric() {
+    //         lastDigit = letter.to_string();
+    //     }
         
-    }
+    // }
     let number = (firstDigit + &lastDigit).parse::<i32>().unwrap();
     number
 }
