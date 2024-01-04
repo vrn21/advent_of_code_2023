@@ -40,13 +40,13 @@ fn check_possible_or_not(line: String,conditions :&HashMap<&str,i32>) -> i32{
     let game_line: Vec<&str> = line.split(":").collect();
 
     //game number, in this case 1
-    let mut game_number:i32 = match game_line[0].split(" ").collect::<Vec<&str>>()[1].parse(){
+    let game_number:i32 = match game_line[0].split(" ").collect::<Vec<&str>>()[1].parse(){
         Err(why) => panic!("{}",why),
         Ok(game_number) => game_number,
     };
 
     //["3 blue, 4 red"," 1 red, 2 green, 6 blue" ,"2 green"]
-    let mut game_data: Vec<&str> = game_line[1].split(";").collect();
+    let game_data: Vec<&str> = game_line[1].split(";").collect();
 
     //"3 blue,4 red"
     for each_round in game_data.iter(){
